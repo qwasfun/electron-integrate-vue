@@ -1,10 +1,13 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <md-app>
+      <md-app-toolbar>
+        <h3 class="md-title" style="flex: 1; text-align: left">Title</h3>
+        <md-button to="/">Home</md-button>
+        <md-button to="/about">About</md-button>
+      </md-app-toolbar>
+    </md-app>
+    <router-view />
   </div>
 </template>
 

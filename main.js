@@ -3,13 +3,19 @@ const { app, BrowserWindow } = require('electron');
 let mainWindow;
 
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+    },
+  });
   // mainWindow.loadFile('index.html');
-  if(process.env.DEBUG){
-    mainWindow.loadURL('http://localhost:8080')
-  }else{
+  if (process.env.DEBUG) {
+    mainWindow.loadURL('http://localhost:8080');
+  } else {
     mainWindow.loadFile(`file://${__dirname}/dist/index.html`);
-
   }
   mainWindow.on('closed', () => {
     mainWindow = null;
